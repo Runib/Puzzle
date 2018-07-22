@@ -20,5 +20,6 @@ namespace Układanka.Models
 
         public int Col { get; set; }
         public int Row { get; set; }
+        public string Text { get; set; }
     }
 }

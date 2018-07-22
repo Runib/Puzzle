@@ -38,11 +38,18 @@ namespace Układanka.ViewModel
             }
             else if (SelectedSplit=="4x4")
             {
-
+                if (Image != null)
+                    navigationService.NavigateTo(ViewModelLocator.CzteryNaCzteryKey, Image);
+                else
+                    navigationService.NavigateTo(ViewModelLocator.CzteryNaCzteryKey, Image);
             }
             else if (SelectedSplit=="5x5")
             {
 
+                if (Image != null)
+                    navigationService.NavigateTo(ViewModelLocator.PiecNaPiecKey, Image);
+                else
+                    navigationService.NavigateTo(ViewModelLocator.PiecNaPiecKey, Image);
             }
             Image = null;
         }

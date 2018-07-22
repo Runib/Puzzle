@@ -29,8 +29,8 @@ namespace Układanka.ViewModel
         {
             var navigationService = new MyNavigationService();
             navigationService.Configure("TrzyNaTrzyView", new Uri("../View/TrzyNaTrzyView.xaml", UriKind.Relative));
-            navigationService.Configure("CzteryNaCzteryView", new Uri("../View/CzteryNaCztery.xaml", UriKind.Relative));
-            navigationService.Configure("PiecNaPiec", new Uri("../View/PiecNaPiec.xaml", UriKind.Relative));
+            navigationService.Configure("CzteryNaCzteryView", new Uri("../View/CzteryNaCzteryView.xaml", UriKind.Relative));
+            navigationService.Configure("PiecNaPiecView", new Uri("../View/PiecNaPiecView.xaml", UriKind.Relative));
             SimpleIoc.Default.Register<IMyNavigationService>(() => navigationService);
         }
 

@@ -14,7 +14,7 @@
 
     <DockPanel Background="#C2C2C2">
         <Grid x:Name="GridMain" Width="auto" HorizontalAlignment="Left">
-            <ListView   ItemsSource="{Binding BitList}"
+            <ListView   ItemsSource="{Binding GameList}"
                                ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Disabled"
                         Background="Green"   >
                 <ListView.ItemsPanel>
