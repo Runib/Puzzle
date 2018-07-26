@@ -10,5 +10,7 @@ namespace Układanka.Services
     public interface IMyNavigationService:INavigationService
     {
         object Parameter { get; }
+
+        void NavigateTo(string pageKey, object parameter, bool refreshPage = false);
     }
 }

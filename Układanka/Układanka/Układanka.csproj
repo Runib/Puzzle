@@ -76,12 +76,16 @@
     <Compile Include="Services\IMyNavigationService.cs" />
     <Compile Include="Services\MyNavigationService.cs" />
     <Compile Include="ViewModel\CzteryNaCzteryViewModel.cs" />
+    <Compile Include="ViewModel\DisplayImageViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\PiecNaPiecViewModel.cs" />
     <Compile Include="ViewModel\TrzyNaTrzyViewModel.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />
     <Compile Include="View\CzteryNaCzteryView.xaml.cs">
       <DependentUpon>CzteryNaCzteryView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\DisplayImageView.xaml.cs">
+      <DependentUpon>DisplayImageView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\PiecNaPiecView.xaml.cs">
       <DependentUpon>PiecNaPiecView.xaml</DependentUpon>
@@ -102,6 +106,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="View\CzteryNaCzteryView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\DisplayImageView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

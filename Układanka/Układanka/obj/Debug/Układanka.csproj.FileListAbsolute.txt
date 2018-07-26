@@ -31,3 +31,5 @@ D:\c#\Nowy folder\Układanka\Układanka\Układanka\obj\Debug\Układanka.csproj.G
 D:\c#\Nowy folder\Układanka\Układanka\Układanka\obj\Debug\Układanka.exe
 D:\c#\Nowy folder\Układanka\Układanka\Układanka\obj\Debug\Układanka.pdb
 D:\c#\Nowy folder\Układanka\Układanka\Układanka\obj\Debug\Układanka.csprojResolveAssemblyReference.cache
+D:\c#\Nowy folder\Układanka\Układanka\Układanka\obj\Debug\View\DisplayImageView.g.cs
+D:\c#\Nowy folder\Układanka\Układanka\Układanka\obj\Debug\View\DisplayImageView.baml

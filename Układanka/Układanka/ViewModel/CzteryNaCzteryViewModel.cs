@@ -40,37 +40,6 @@ namespace Układanka.ViewModel
             set { image = value; RaisePropertyChanged(() => Image); }
         }
 
-        private string selectedSplit;
-        public string SelectedSplit
-        {
-            get { return selectedSplit; }
-            set { selectedSplit = value; RaisePropertyChanged(() => SelectedSplit); if (!string.IsNullOrEmpty(value)) CheckSplit(); }
-        }
-
-        private void CheckSplit()
-        {
-            if (SelectedSplit == "3x3")
-            {
-                if (Image != null)
-                    navigationService.NavigateTo(ViewModelLocator.TrzyNaTrzyKey, Image);
-                else
-                    navigationService.NavigateTo(ViewModelLocator.TrzyNaTrzyKey);
-            }
-            else if (SelectedSplit == "4x4")
-            {
-                if (Image != null)
-                    navigationService.NavigateTo(ViewModelLocator.CzteryNaCzteryKey, Image);
-                else
-                    navigationService.NavigateTo(ViewModelLocator.CzteryNaCzteryKey);
-            }
-            else if (SelectedSplit == "5x5")
-            {
-                if (Image != null)
-                    navigationService.NavigateTo(ViewModelLocator.PiecNaPiecKey, Image);
-                else
-                    navigationService.NavigateTo(ViewModelLocator.PiecNaPiecKey);
-            }
-        }
 
         public CzteryNaCzteryViewModel(IMyNavigationService navService)
         {
@@ -83,21 +52,6 @@ namespace Układanka.ViewModel
 
         public void InitCommand()
         {
-            ChooseImageCommand = new RelayCommand(() =>
-            {
-                var dialog = new OpenFileDialog()
-                {
-                    //TODO: filters
-                };
-                dialog.DefaultExt = ".jpg";
-                dialog.Filter = "Image (*.jpg)|*.jpg|Image (*.png)|*.png";
-
-                if (dialog.ShowDialog() == true)
-                {
-                    Image = dialog.FileName;
-                }
-            });
-
             MouseClicked = new RelayCommand<ImageModel>(pImg =>
             {
                 var EmptyCell = GameList.Where(b => b.Image == null).Single();

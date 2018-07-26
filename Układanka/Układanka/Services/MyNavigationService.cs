@@ -75,7 +75,12 @@ namespace Układanka.Services
             NavigateTo(pageKey, null);
         }
 
-        public virtual void NavigateTo(string pageKey, object parameter)
+        public void NavigateTo(string pageKey, object parameter)
+        {
+            NavigateTo(pageKey, parameter);
+        }
+
+        public void NavigateTo(string pageKey, object parameter, bool refreshPage = false)
         {
             lock (_pagesByKey)
             {
@@ -89,6 +94,11 @@ namespace Układanka.Services
                 if (frame != null)
                 {
                     frame.Source = _pagesByKey[pageKey];
+
+                    if (refreshPage && pageKey != "DisplayImageView")
+                        frame.Source = _pagesByKey["DisplayImageView"];
+                    else if(refreshPage && pageKey == "DisplayImageView")
+                        frame.Refresh();
                 }
                 Parameter = parameter;
                 _historic.Add(pageKey);

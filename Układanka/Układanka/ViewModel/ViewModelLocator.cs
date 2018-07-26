@@ -8,7 +8,10 @@ namespace Układanka.ViewModel
 
     public class ViewModelLocator
     {
+
+        public static string DisplayImage;
         //Tutaj stringi kluczy dla innych pagow
+        public const string DisplayImageKey = "DisplayImageView";
         public const string TrzyNaTrzyKey = "TrzyNaTrzyView";
         public const string CzteryNaCzteryKey = "CzteryNaCzteryView";
         public const string PiecNaPiecKey = "PiecNaPiecView";
@@ -22,6 +25,7 @@ namespace Układanka.ViewModel
             SimpleIoc.Default.Register<TrzyNaTrzyViewModel>();
             SimpleIoc.Default.Register<CzteryNaCzteryViewModel>();
             SimpleIoc.Default.Register<PiecNaPiecViewModel>();
+            SimpleIoc.Default.Register<DisplayImageViewModel>();
             SimpleIoc.Default.Register<MainViewModel>();
         }
 
@@ -31,6 +35,7 @@ namespace Układanka.ViewModel
             navigationService.Configure("TrzyNaTrzyView", new Uri("../View/TrzyNaTrzyView.xaml", UriKind.Relative));
             navigationService.Configure("CzteryNaCzteryView", new Uri("../View/CzteryNaCzteryView.xaml", UriKind.Relative));
             navigationService.Configure("PiecNaPiecView", new Uri("../View/PiecNaPiecView.xaml", UriKind.Relative));
+            navigationService.Configure("DisplayImageView", new Uri("../View/DisplayImageView.xaml", UriKind.Relative));
             SimpleIoc.Default.Register<IMyNavigationService>(() => navigationService);
         }
 
@@ -63,6 +68,14 @@ namespace Układanka.ViewModel
             get
             {
                 return ServiceLocator.Current.GetInstance<PiecNaPiecViewModel>();
+            }
+        }
+
+        public DisplayImageViewModel Display
+        {
+            get
+            {
+                return ServiceLocator.Current.GetInstance<DisplayImageViewModel>();
             }
         }
 

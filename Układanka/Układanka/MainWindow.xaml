@@ -6,6 +6,7 @@
         xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
         xmlns:cmd="clr-namespace:GalaSoft.MvvmLight.Command;assembly=GalaSoft.MvvmLight.Platform"
         xmlns:local="clr-namespace:Układanka"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib"
         mc:Ignorable="d"
         Title="Układanka" Height="700" Width="1050"
         DataContext="{Binding Main, Source={StaticResource Locator}}"
@@ -19,23 +20,18 @@
             </Grid.ColumnDefinitions>
 
             <Frame Name="MainFrame" NavigationUIVisibility="Hidden" Grid.Column="0" ></Frame>
-            <Image Grid.Column="0" Source="{Binding Image}" Stretch="Fill">
-            </Image>
-            
             <Grid x:Name="GridSide" Width="200" HorizontalAlignment="Right" Grid.Column="1">
                 <Button Content="Wybierz Obrazek" Width="150" Height="30" Background="DarkCyan" Foreground="White" VerticalAlignment="Top"
                     Margin="0 50 0 0 " FontSize="17" Command="{Binding ChooseImageCommand}"></Button>
 
-                <ComboBox Width="150" Height="20" VerticalAlignment="Top" Margin="0 130 0 0" Text="{Binding SelectedSplit}">
+                <ComboBox Text="{Binding SelectedSplit}" Width="150" Height="20" VerticalAlignment="Top" Margin="0 130 0 0" SelectedIndex="{Binding SelectedInd,Mode=TwoWay}">
+                    <ComboBoxItem></ComboBoxItem>
                     <ComboBoxItem>3x3</ComboBoxItem>
                     <ComboBoxItem>4x4</ComboBoxItem>
                     <ComboBoxItem>5x5</ComboBoxItem>
                 </ComboBox>
             </Grid>
         </Grid>
-
-        
-        
     </DockPanel>
     <i:Interaction.Triggers>
         <i:EventTrigger EventName="Loaded">
