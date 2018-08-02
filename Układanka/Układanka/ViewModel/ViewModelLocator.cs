@@ -2,12 +2,14 @@ using System;
 using CommonServiceLocator;
 using GalaSoft.MvvmLight.Ioc;
 using Układanka.Services;
+using System.ComponentModel;
 
 namespace Układanka.ViewModel
 {
 
     public class ViewModelLocator
     {
+
 
         public static string DisplayImage;
         //Tutaj stringi kluczy dla innych pagow

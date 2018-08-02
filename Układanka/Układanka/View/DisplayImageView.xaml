@@ -13,9 +13,31 @@
       UseLayoutRounding="True">
 
     <DockPanel Background="#C2C2C2">
+        
+        
+        
         <Grid x:Name="GridMain" Width="auto">
-            <Image Source="{Binding Image}" Stretch="Fill">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50" ></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+            
+            <Image Source="{Binding Image}" Stretch="Fill" Grid.Row="1">
             </Image>
+
+            <Line X1="0" Y1="100" X2="850" Y2="100" Stroke="White" StrokeThickness="5" />
+
+            <TextBlock Width="130" Height="30" FontSize="18" HorizontalAlignment="Left" Margin="30 0 0 0" Grid.Row="0">Liczba kliknięć:</TextBlock>
+            <TextBox Width="130" Height="30" FontSize="18" HorizontalAlignment="Center" Margin="0 0 400 0"
+                     IsEnabled="False" Grid.Row="0"></TextBox>
+
+            <TextBlock Width="50" Height="30" FontSize="18" HorizontalAlignment="Center" 
+                       Margin="0 0 50 0" Grid.Row="0">Czas: </TextBlock>
+            <TextBox Width="130" Height="30" FontSize="18" HorizontalAlignment="Center" Margin="140 0 0 0"
+                     IsEnabled="False" Grid.Row="0"></TextBox>
+
+
         </Grid>
 
     </DockPanel>

@@ -24,5 +24,6 @@ namespace Układanka
         {
             InitializeComponent();
         }
+
     }
 }

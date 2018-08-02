@@ -17,13 +17,13 @@ namespace Układanka.ViewModel
     public class PiecNaPiecViewModel :ViewModelBase
     {
         private IMyNavigationService navigationService;
-        public ObservableCollection<ImageModel> Original { get; set; } = new ObservableCollection<ImageModel>();
-        public ObservableCollection<ImageModel> GameList { get; set; } = new ObservableCollection<ImageModel>();
+        public static ObservableCollection<ImageModel> Original { get; set; } = new ObservableCollection<ImageModel>();
+        public static ObservableCollection<ImageModel> GameList { get; set; } = new ObservableCollection<ImageModel>();
         public int[] num = new int[9];
 
 
-        public RelayCommand ChooseImageCommand { get; set; }
         public RelayCommand<ImageModel> MouseClicked { get; set; }
+        public RelayCommand OnLoad { get; set; }
 
         private ImageSource img;
         public ImageSource Img
@@ -32,6 +32,12 @@ namespace Układanka.ViewModel
             set { img = value; RaisePropertyChanged(() => Img); }
         }
 
+        private int myCounter;
+        public int MyCounter
+        {
+            get { return myCounter; }
+            set { myCounter = value; RaisePropertyChanged(() => MyCounter); }
+        }
 
         private string image;
         public string Image
@@ -44,8 +50,9 @@ namespace Układanka.ViewModel
         {
             this.navigationService = navService;
             InitCommand();
-            Image = navigationService.Parameter.ToString();
+            Image = ViewModelLocator.DisplayImage;
             GameList = GameHelper.SplitImage(Image, 5);
+            MyCounter = 0;
 
         }
 
@@ -60,6 +67,14 @@ namespace Układanka.ViewModel
                     EmptyCell.Image = GameHelper.ChangeImage(pImg, EmptyCell, 4);
                     pImg.Image = null;
                 }
+                MyCounter++;
+            });
+
+            OnLoad = new RelayCommand(() =>
+            {
+                Image = ViewModelLocator.DisplayImage;
+                GameList = GameHelper.SplitImage(Image, 5);
+                MyCounter = 0;
             });
 
         }

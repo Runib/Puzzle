@@ -17,13 +17,14 @@ namespace Układanka.ViewModel
     public class CzteryNaCzteryViewModel : ViewModelBase 
     {
         private IMyNavigationService navigationService;
-        public ObservableCollection<ImageModel> Original { get; set; } = new ObservableCollection<ImageModel>();
-        public ObservableCollection<ImageModel> GameList { get; set; } = new ObservableCollection<ImageModel>();
+        public static ObservableCollection<ImageModel> Original { get; set; } = new ObservableCollection<ImageModel>();
+        public static ObservableCollection<ImageModel> GameList { get; set; } = new ObservableCollection<ImageModel>();
         public int[] num = new int[9];
 
 
         public RelayCommand ChooseImageCommand { get; set; }
         public RelayCommand<ImageModel> MouseClicked { get; set; }
+        public RelayCommand OnLoad { get; set; }
 
         private ImageSource img;
         public ImageSource Img
@@ -40,14 +41,21 @@ namespace Układanka.ViewModel
             set { image = value; RaisePropertyChanged(() => Image); }
         }
 
+        private int myCounter;
+        public int MyCounter
+        {
+            get { return myCounter; }
+            set { myCounter = value; RaisePropertyChanged(() => MyCounter); }
+        }
+
 
         public CzteryNaCzteryViewModel(IMyNavigationService navService)
         {
             this.navigationService = navService;
             InitCommand();
-            Image = navigationService.Parameter.ToString();
+            Image = ViewModelLocator.DisplayImage;
             GameList = GameHelper.SplitImage(Image, 4);
-
+            MyCounter = 0;
         }
 
         public void InitCommand()
@@ -61,6 +69,15 @@ namespace Układanka.ViewModel
                     EmptyCell.Image = GameHelper.ChangeImage(pImg, EmptyCell, 3);
                     pImg.Image = null;
                 }
+                MyCounter++;
+            });
+            
+
+            OnLoad = new RelayCommand(() =>
+            {
+                Image = ViewModelLocator.DisplayImage;
+                GameList = GameHelper.SplitImage(Image, 4);
+                MyCounter = 0;
             });
 
         }

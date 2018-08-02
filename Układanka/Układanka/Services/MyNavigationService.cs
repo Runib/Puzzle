@@ -95,10 +95,12 @@ namespace Układanka.Services
                 {
                     frame.Source = _pagesByKey[pageKey];
 
-                    if (refreshPage && pageKey != "DisplayImageView")
-                        frame.Source = _pagesByKey["DisplayImageView"];
-                    else if(refreshPage && pageKey == "DisplayImageView")
+                    if (refreshPage && CurrentPageKey == "DisplayImageView")
                         frame.Refresh();
+                    else if (refreshPage && CurrentPageKey != "DisplayImageView")
+                        frame.Source = _pagesByKey["DisplayImageView"];
+                    else
+                        frame.Source = _pagesByKey[pageKey];
                 }
                 Parameter = parameter;
                 _historic.Add(pageKey);

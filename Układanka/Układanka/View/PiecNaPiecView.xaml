@@ -8,15 +8,32 @@
       
       xmlns:local="clr-namespace:Układanka.View"
       mc:Ignorable="d" 
-      Title="Układanka12" Height="670" Width="850"
+      Title="Układanka" Height="670" Width="850"
       DataContext="{Binding Piec, Source={StaticResource Locator}}"
       UseLayoutRounding="True">
 
     <DockPanel Background="#C2C2C2">
         <Grid x:Name="GridMain" Width="auto" HorizontalAlignment="Left">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50" ></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <Line X1="0" Y1="100" X2="850" Y2="100" Stroke="White" StrokeThickness="5" />
+
+            <TextBlock Width="130" Height="30" FontSize="18" HorizontalAlignment="Left" Margin="30 0 0 0" Grid.Row="0">Liczba kliknięć:</TextBlock>
+            <TextBox Width="130" Height="30" FontSize="18" HorizontalAlignment="Center" Margin="0 0 400 0"
+                     IsEnabled="False" Grid.Row="0" Text="{Binding MyCounter}"></TextBox>
+
+            <TextBlock Width="50" Height="30" FontSize="18" HorizontalAlignment="Center" 
+                       Margin="0 0 50 0" Grid.Row="0">Czas:</TextBlock>
+            <TextBox Width="130" Height="30" FontSize="18" HorizontalAlignment="Center" Margin="140 0 0 0"
+                     IsEnabled="False" Grid.Row="0"></TextBox>
+
             <ListView   ItemsSource="{Binding GameList}"
                                ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Disabled"
-                        Background="Green"   >
+                        Background="Green" Grid.Row="1"  >
                 <ListView.ItemsPanel>
                     <ItemsPanelTemplate>
                         <Grid   VerticalAlignment="Top">
@@ -50,7 +67,7 @@
                 </ItemsControl.ItemContainerStyle>
                 <ItemsControl.ItemTemplate>
                     <DataTemplate>
-                        <Image Source="{Binding Image}" Width="160" Height="130" Stretch="Fill" >
+                        <Image Source="{Binding Image}" Width="155" Height="118" Stretch="Fill" >
                             <i:Interaction.Triggers>
                                 <i:EventTrigger EventName="MouseLeftButtonUp">
                                     <cmd:EventToCommand Command="{Binding DataContext.MouseClicked,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Page}}}" CommandParameter="{Binding }" />

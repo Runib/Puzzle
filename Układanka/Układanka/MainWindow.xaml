@@ -5,8 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
         xmlns:cmd="clr-namespace:GalaSoft.MvvmLight.Command;assembly=GalaSoft.MvvmLight.Platform"
-        xmlns:local="clr-namespace:Układanka"
-        xmlns:sys="clr-namespace:System;assembly=mscorlib"
+        xmlns:local="clr-namespace:Układanka.View"
         mc:Ignorable="d"
         Title="Układanka" Height="700" Width="1050"
         DataContext="{Binding Main, Source={StaticResource Locator}}"
@@ -15,22 +14,37 @@
         <Grid x:Name="GridMain" >
 
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*">
+                </ColumnDefinition>
                 <ColumnDefinition Width="200"/>
             </Grid.ColumnDefinitions>
 
-            <Frame Name="MainFrame" NavigationUIVisibility="Hidden" Grid.Column="0" ></Frame>
+            <Frame Name="MainFrame" NavigationUIVisibility="Hidden" Grid.Column="0" >
+
+            </Frame>
+            
             <Grid x:Name="GridSide" Width="200" HorizontalAlignment="Right" Grid.Column="1">
                 <Button Content="Wybierz Obrazek" Width="150" Height="30" Background="DarkCyan" Foreground="White" VerticalAlignment="Top"
                     Margin="0 50 0 0 " FontSize="17" Command="{Binding ChooseImageCommand}"></Button>
 
-                <ComboBox Text="{Binding SelectedSplit}" Width="150" Height="20" VerticalAlignment="Top" Margin="0 130 0 0" SelectedIndex="{Binding SelectedInd,Mode=TwoWay}">
+                <Button Content="Mieszaj" Width="150" Height="30" Background="DarkCyan" Foreground="White" VerticalAlignment="Center"
+                    Margin="0 0 0 220 " FontSize="17" Command="{Binding MixImageCommand}"></Button>
+
+                <TextBlock Width="150" Height="20" VerticalAlignment="Top" Margin="0 115 0 0" FontSize="15">
+                    Wybierz poziom
+                </TextBlock>
+
+                <ComboBox Text="{Binding SelectedSplit}" Width="150" Height="20" VerticalAlignment="Top" Margin="0 140 0 0" SelectedIndex="{Binding SelectedInd,Mode=TwoWay}">
                     <ComboBoxItem></ComboBoxItem>
                     <ComboBoxItem>3x3</ComboBoxItem>
                     <ComboBoxItem>4x4</ComboBoxItem>
                     <ComboBoxItem>5x5</ComboBoxItem>
                 </ComboBox>
+                
+                
             </Grid>
+
+            <GridSplitter Width="5" IsEnabled="False"></GridSplitter>
         </Grid>
     </DockPanel>
     <i:Interaction.Triggers>

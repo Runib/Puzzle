@@ -5,6 +5,8 @@ using Microsoft.Win32;
 using Układanka.Services;
 using System.Windows;
 using System.Windows.Controls;
+using Układanka.Helper;
+using System.ComponentModel;
 
 namespace Układanka.ViewModel
 {
@@ -12,7 +14,12 @@ namespace Układanka.ViewModel
     {
         private IMyNavigationService navigationService;
 
+
+        private string ChoosenSplit = null;
+
         public RelayCommand ChooseImageCommand { get; set; }
+        public RelayCommand MixImageCommand { get; set; }
+
 
         private string image;
         public string Image
@@ -43,7 +50,9 @@ namespace Układanka.ViewModel
             {
                 if (Image != null)
                 {
+                    TrzyNaTrzyViewModel.GameList.Clear();
                     navigationService.NavigateTo(ViewModelLocator.TrzyNaTrzyKey, Image);
+                    ChoosenSplit = "3x3";
                 }
                 else
                 {
@@ -56,10 +65,13 @@ namespace Układanka.ViewModel
             {
                 if (Image != null)
                 {
+                    CzteryNaCzteryViewModel.GameList.Clear();
                     navigationService.NavigateTo(ViewModelLocator.CzteryNaCzteryKey, Image);
+                    ChoosenSplit = "4x4";
                 }
                 else
                 {
+
                     MessageBox.Show("Wybierz obraz", "Confirmation", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
             }
@@ -68,7 +80,9 @@ namespace Układanka.ViewModel
 
                 if (Image != null)
                 {
+                    PiecNaPiecViewModel.GameList.Clear();
                     navigationService.NavigateTo(ViewModelLocator.PiecNaPiecKey, Image);
+                    ChoosenSplit = "5x5";
                 }
                 else
                 {
@@ -99,9 +113,39 @@ namespace Układanka.ViewModel
                 if (dialog.ShowDialog() == true)
                 {
                     Image = dialog.FileName;
-                    ViewModelLocator.DisplayImage = Image; //no dobra jedyne co mi teraz przychodzi do glowy
-
+                    ViewModelLocator.DisplayImage = Image; 
+                    ChoosenSplit = null;
                     navigationService.NavigateTo(ViewModelLocator.DisplayImageKey,Image, true);
+                }
+            });
+
+            MixImageCommand = new RelayCommand(() =>
+            {
+                if (Image==null)
+                {
+                    MessageBox.Show("Wybierz obraz", "Confirmation", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+                else if (ChoosenSplit==null)
+                {
+                    MessageBox.Show("Wybierz poziom", "Confirmation", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+                else
+                {
+                    if (ChoosenSplit == "3x3")
+                    {
+                        TrzyNaTrzyViewModel.GameList.Clear();
+                        TrzyNaTrzyViewModel.GameList = GameHelper.SplitImage(Image, 3);
+                    }
+                    else if (ChoosenSplit == "4x4")
+                    {
+                        CzteryNaCzteryViewModel.GameList.Clear();
+                        CzteryNaCzteryViewModel.GameList = GameHelper.SplitImage(Image, 4);
+                    }
+                    else if (ChoosenSplit == "5x5")
+                    {
+                        PiecNaPiecViewModel.GameList.Clear();
+                        PiecNaPiecViewModel.GameList = GameHelper.SplitImage(Image, 5);
+                    }
                 }
             });
         }

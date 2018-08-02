@@ -11,6 +11,7 @@ using System.Windows;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using Układanka.Models;
+using Układanka.ViewModel;
 
 namespace Układanka.Helper
 {
@@ -22,6 +23,7 @@ namespace Układanka.Helper
         public static ObservableCollection<ImageModel> SplitImage(string img, int length)
         {
             Original.Clear();
+            GameList.Clear();
             Bitmap original = new Bitmap(img);
             int position = 0;
             int index = 0;
@@ -46,6 +48,7 @@ namespace Układanka.Helper
                         bitmapImage.EndInit();
                         bitmapImage.Freeze();
                         Original.Add(new ImageModel { Image = bitmapImage, Row = i, Col = j, Text = index.ToString() });
+                        
 
 
                     }
@@ -53,7 +56,6 @@ namespace Układanka.Helper
                 }
             }
             Original.Last().Image = null;
-
 
             do
             {
@@ -66,7 +68,7 @@ namespace Układanka.Helper
         private static bool CheckIt(int dlugosc)
         {
             int parity = 0;
-            var EmptyField = GameList.Where(b => b.Image == null).Single();
+            var EmptyField = GameList.Where(b => b.Image == null).SingleOrDefault();
             var numberOfRow = EmptyField.Row;
 
             for (int i = 0; i < GameList.Count - 1; i++)
@@ -115,7 +117,7 @@ namespace Układanka.Helper
                     index++;
                 }
             }
-
+            ListPoint.Clear();
             sortGameList();
         }
 
@@ -140,6 +142,10 @@ namespace Układanka.Helper
                             help = GameList[j];
                             GameList[j] = GameList[j + 1];
                             GameList[j + 1] = help;
+                        }
+                        else if (GameList[j].Col == GameList[j + 1].Col)
+                        {
+                            MessageBox.Show("cuhjowu algorytm", "Confirmation", MessageBoxButton.OK, MessageBoxImage.Information);
                         }
                         else
                             continue;
@@ -224,10 +230,16 @@ namespace Układanka.Helper
                 }
             }
 
-
             return EmptyModel.Image;
         }
 
+
+
+
+
         }
+
+
+        
 }
 
