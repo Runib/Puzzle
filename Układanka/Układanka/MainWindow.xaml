@@ -24,6 +24,13 @@
             </Frame>
             
             <Grid x:Name="GridSide" Width="200" HorizontalAlignment="Right" Grid.Column="1">
+                <Button Width="30" Height="25" Foreground="White" VerticalAlignment="Top"
+                    Margin="5 5 0 0 " FontSize="17" HorizontalAlignment="Left" Command="{Binding SoundCommand}">
+                    <Button.Background>
+                        <ImageBrush ImageSource="{Binding ImageSound}"/>
+                    </Button.Background> 
+                </Button>
+                
                 <Button Content="Wybierz Obrazek" Width="150" Height="30" Background="DarkCyan" Foreground="White" VerticalAlignment="Top"
                     Margin="0 50 0 0 " FontSize="17" Command="{Binding ChooseImageCommand}"></Button>
 

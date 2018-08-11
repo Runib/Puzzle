@@ -150,6 +150,8 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Images\speaker.png" />
+    <Resource Include="Images\mute.png" />
     <Content Include="NewFolder1\button_click.mp3" />
     <Content Include="NewFolder1\Rick and Morty - Evil Morty.mp3" />
   </ItemGroup>
