@@ -97,6 +97,12 @@ namespace Układanka.Services
 
                     if (refreshPage && CurrentPageKey == "DisplayImageView")
                         frame.Refresh();
+                    else if (refreshPage && CurrentPageKey == "TrzyNaTrzyView")
+                        frame.Refresh();
+                    else if (refreshPage && CurrentPageKey == "CzteryNaCzteryView")
+                        frame.Refresh();
+                    else if (refreshPage && CurrentPageKey == "PiecNaPiecView")
+                        frame.Refresh();
                     else if (refreshPage && CurrentPageKey != "DisplayImageView")
                         frame.Source = _pagesByKey["DisplayImageView"];
                     else

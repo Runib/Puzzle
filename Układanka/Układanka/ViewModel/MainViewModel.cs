@@ -50,6 +50,7 @@ namespace Układanka.ViewModel
             {
                 if (Image != null)
                 {
+                    TrzyNaTrzyViewModel.StartTime = DateTime.Now;
                     TrzyNaTrzyViewModel.GameList.Clear();
                     navigationService.NavigateTo(ViewModelLocator.TrzyNaTrzyKey, Image);
                     ChoosenSplit = "3x3";
@@ -65,6 +66,7 @@ namespace Układanka.ViewModel
             {
                 if (Image != null)
                 {
+                    CzteryNaCzteryViewModel.StartTime = DateTime.Now;
                     CzteryNaCzteryViewModel.GameList.Clear();
                     navigationService.NavigateTo(ViewModelLocator.CzteryNaCzteryKey, Image);
                     ChoosenSplit = "4x4";
@@ -80,6 +82,7 @@ namespace Układanka.ViewModel
 
                 if (Image != null)
                 {
+                    PiecNaPiecViewModel.StartTime = DateTime.Now;
                     PiecNaPiecViewModel.GameList.Clear();
                     navigationService.NavigateTo(ViewModelLocator.PiecNaPiecKey, Image);
                     ChoosenSplit = "5x5";
@@ -133,17 +136,23 @@ namespace Układanka.ViewModel
                 {
                     if (ChoosenSplit == "3x3")
                     {
+                        TrzyNaTrzyViewModel.StartTime = DateTime.Now;
                         TrzyNaTrzyViewModel.GameList.Clear();
+                        TrzyNaTrzyViewModel.IsMixed = true;
                         TrzyNaTrzyViewModel.GameList = GameHelper.SplitImage(Image, 3);
                     }
                     else if (ChoosenSplit == "4x4")
                     {
+                        CzteryNaCzteryViewModel.StartTime = DateTime.Now;
                         CzteryNaCzteryViewModel.GameList.Clear();
+                        CzteryNaCzteryViewModel.IsMixed = true;
                         CzteryNaCzteryViewModel.GameList = GameHelper.SplitImage(Image, 4);
                     }
                     else if (ChoosenSplit == "5x5")
                     {
+                        PiecNaPiecViewModel.StartTime = DateTime.Now;
                         PiecNaPiecViewModel.GameList.Clear();
+                        PiecNaPiecViewModel.IsMixed = true;
                         PiecNaPiecViewModel.GameList = GameHelper.SplitImage(Image, 5);
                     }
                 }

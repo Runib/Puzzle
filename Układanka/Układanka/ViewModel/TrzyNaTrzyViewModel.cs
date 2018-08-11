@@ -18,21 +18,40 @@ using System.Drawing.Imaging;
 using Układanka.Models;
 using System.Collections.ObjectModel;
 using Układanka.Helper;
+using System.Windows.Threading;
+using System.ComponentModel;
+using System.Media;
 
 namespace Układanka.ViewModel
 {
-    public class TrzyNaTrzyViewModel : ViewModelBase
+    public class TrzyNaTrzyViewModel : ViewModelBase, INotifyPropertyChanged
     {
+        private MediaPlayer mediaPlayer;
         private IMyNavigationService navigationService;
         public static ObservableCollection<ImageModel> Original { get; set; } = new ObservableCollection<ImageModel>();
         public static ObservableCollection<ImageModel> GameList { get; set; } = new ObservableCollection<ImageModel>();
-        public int[] num = new int[9];
-        
 
+        public static bool IsMixed = false;
+        public static DateTime StartTime;
+        DispatcherTimer dispathcerTimer;
+        public event PropertyChangedEventHandler PropertyChanged;
 
 
         public RelayCommand<ImageModel> MouseClicked { get; set; }
         public RelayCommand OnLoad { get; set; }
+
+
+        private string currentTime;
+        public string CurrentTime
+        {
+            get { return currentTime; }
+            set {
+                if (currentTime != value)
+                    currentTime = value;
+
+                OnPropertyChanged("CurrentTime");
+            }
+        }
 
         private ImageSource img;
         public ImageSource Img
@@ -42,14 +61,16 @@ namespace Układanka.ViewModel
         }
 
         private int myCounter;
-
         public int MyCounter
         {
             get { return myCounter; }
-            set { myCounter = value; RaisePropertyChanged(() => MyCounter); }
+            set {
+                if (myCounter != value)
+                    myCounter = value;
+
+                OnPropertyChanged("MyCounter");
+            }
         }
-
-
 
         private string image;
         public string Image
@@ -60,11 +81,15 @@ namespace Układanka.ViewModel
 
         public TrzyNaTrzyViewModel(IMyNavigationService navService)
         {
+            
+            DispatcherTimerSetup();
+
             this.navigationService = navService;
             InitCommand();
             Image = ViewModelLocator.DisplayImage;
             GameList = GameHelper.SplitImage(Image,3);
             MyCounter = 0;
+
         }
 
         public void InitCommand()
@@ -77,8 +102,14 @@ namespace Układanka.ViewModel
                 {
                     EmptyCell.Image = GameHelper.ChangeImage(pImg, EmptyCell,2);
                     pImg.Image = null;
+                    mediaPlayer = new MediaPlayer();
+                    mediaPlayer.Open(ViewModelLocator.mediaUri);
+                    mediaPlayer.Volume = 200;
+                    mediaPlayer.Play();
+                    MyCounter = MyCounter + 1;
+
                 }
-                MyCounter++;
+                
             });
 
             OnLoad = new RelayCommand(() =>
@@ -86,8 +117,37 @@ namespace Układanka.ViewModel
                 Image = ViewModelLocator.DisplayImage;
                 GameList = GameHelper.SplitImage(Image, 3);
                 MyCounter = 0;
+                DispatcherTimerSetup();
             });
 
         }
+
+        private void DispatcherTimerSetup()
+        {
+            DispatcherTimer dispathcerTimer = new DispatcherTimer();
+            dispathcerTimer.Interval = TimeSpan.FromSeconds(1);
+            dispathcerTimer.Tick += new EventHandler(CurrentTimeText);
+            dispathcerTimer.Start();
+        }
+
+        private void CurrentTimeText(object sender, EventArgs e)
+        {
+            if(IsMixed)
+            {
+                MyCounter = 0;
+                IsMixed = false;
+            }
+            DateTime currTime = DateTime.Now;
+            DateTime newTime = currTime.Subtract(StartTime.TimeOfDay);
+            CurrentTime = newTime.ToString("HH:mm:ss");
+        }
+
+        protected virtual void OnPropertyChanged(string propertyName)
+        {
+            PropertyChangedEventHandler handler = PropertyChanged;
+            if (handler != null)
+                handler(this, new PropertyChangedEventArgs(propertyName));
+        }
+
     }
 }

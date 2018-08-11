@@ -12,7 +12,7 @@
       DataContext="{Binding Trzy, Source={StaticResource Locator}}"
       UseLayoutRounding="True">
 
-    <DockPanel Background="#C2C2C2" >
+    <DockPanel Background="White" >
 
         <Grid x:Name="GridMain" Width="auto" HorizontalAlignment="Left">
             <Grid.RowDefinitions>
@@ -29,11 +29,11 @@
             <TextBlock Width="50" Height="30" FontSize="18" HorizontalAlignment="Center" 
                        Margin="0 0 50 0" Grid.Row="0">Czas:</TextBlock>
             <TextBox Width="130" Height="30" FontSize="18" HorizontalAlignment="Center" Margin="140 0 0 0"
-                     IsEnabled="False" Grid.Row="0"></TextBox>
+                     IsEnabled="False" Grid.Row="0" Text="{Binding CurrentTime}"></TextBox>
 
             <ListView   ItemsSource="{Binding GameList}"
                                ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Disabled"
-                        Background="Green" Grid.Row="1"  >
+                        Background="White" Grid.Row="1"  >
                 <ListView.ItemsPanel>
                     <ItemsPanelTemplate>
                         <Grid   VerticalAlignment="Top">
@@ -55,7 +55,7 @@
                         <Style.Setters>
                             <Setter Property="Grid.Row" Value="{Binding Row}" />
                             <Setter Property="Grid.Column" Value="{Binding Col}" />
-                            <Setter Property="Background" Value="Green"/>
+                            <Setter Property="Background" Value="White"/>
                             <Setter Property="Focusable" Value="False"/>
                         </Style.Setters>
                     </Style>

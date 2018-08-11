@@ -10,7 +10,7 @@ namespace Układanka.ViewModel
     public class ViewModelLocator
     {
 
-
+        public static Uri mediaUri = new Uri("D:/c#/Nowy folder/Układanka/Układanka/Układanka/Music/button_click.mp3");
         public static string DisplayImage;
         //Tutaj stringi kluczy dla innych pagow
         public const string DisplayImageKey = "DisplayImageView";
