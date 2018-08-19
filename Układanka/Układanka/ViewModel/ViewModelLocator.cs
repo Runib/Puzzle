@@ -17,6 +17,7 @@ namespace Układanka.ViewModel
         public const string TrzyNaTrzyKey = "TrzyNaTrzyView";
         public const string CzteryNaCzteryKey = "CzteryNaCzteryView";
         public const string PiecNaPiecKey = "PiecNaPiecView";
+        public const string RankingKey = "RankingView";
 
         public ViewModelLocator()
         {
@@ -28,6 +29,7 @@ namespace Układanka.ViewModel
             SimpleIoc.Default.Register<CzteryNaCzteryViewModel>();
             SimpleIoc.Default.Register<PiecNaPiecViewModel>();
             SimpleIoc.Default.Register<DisplayImageViewModel>();
+            SimpleIoc.Default.Register<RankingViewModel>();
             SimpleIoc.Default.Register<MainViewModel>();
         }
 
@@ -78,6 +80,14 @@ namespace Układanka.ViewModel
             get
             {
                 return ServiceLocator.Current.GetInstance<DisplayImageViewModel>();
+            }
+        }
+
+        public RankingViewModel Rankinkg
+        {
+            get
+            {
+                return ServiceLocator.Current.GetInstance<RankingViewModel>();
             }
         }
 

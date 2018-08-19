@@ -25,7 +25,6 @@ namespace Układanka.ViewModel
 
         public static bool IsMixed = false;
         public static DateTime StartTime;
-        DispatcherTimer dispathcerTimer;
         public event PropertyChangedEventHandler PropertyChanged;
 
         public RelayCommand<ImageModel> MouseClicked { get; set; }
@@ -78,6 +77,7 @@ namespace Układanka.ViewModel
             this.navigationService = navService;
             InitCommand();
             Image = ViewModelLocator.DisplayImage;
+            Original = GameHelper.OriginalImage(Image, 5);
             GameList = GameHelper.SplitImage(Image, 5);
             MyCounter = 0;
 
@@ -105,6 +105,7 @@ namespace Układanka.ViewModel
             OnLoad = new RelayCommand(() =>
             {
                 Image = ViewModelLocator.DisplayImage;
+                Original = GameHelper.OriginalImage(Image, 5);
                 GameList = GameHelper.SplitImage(Image, 5);
                 MyCounter = 0;
                 DispatcherTimerSetup();

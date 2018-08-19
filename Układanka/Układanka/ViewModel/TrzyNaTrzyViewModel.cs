@@ -33,7 +33,6 @@ namespace Układanka.ViewModel
 
         public static bool IsMixed = false;
         public static DateTime StartTime;
-        DispatcherTimer dispathcerTimer;
         public event PropertyChangedEventHandler PropertyChanged;
 
 
@@ -87,6 +86,7 @@ namespace Układanka.ViewModel
             this.navigationService = navService;
             InitCommand();
             Image = ViewModelLocator.DisplayImage;
+            Original = GameHelper.OriginalImage(Image, 3);
             GameList = GameHelper.SplitImage(Image,3);
             MyCounter = 0;
 
@@ -107,7 +107,10 @@ namespace Układanka.ViewModel
                     mediaPlayer.Volume = 200;
                     mediaPlayer.Play();
                     MyCounter = MyCounter + 1;
+                    if (GameHelper.CheckIt(Original,3))
+                    {
 
+                    }
                 }
                 
             });
@@ -115,6 +118,7 @@ namespace Układanka.ViewModel
             OnLoad = new RelayCommand(() =>
             {
                 Image = ViewModelLocator.DisplayImage;
+                Original = GameHelper.OriginalImage(Image, 3);
                 GameList = GameHelper.SplitImage(Image, 3);
                 MyCounter = 0;
                 DispatcherTimerSetup();

@@ -24,7 +24,7 @@
             </Frame>
             
             <Grid x:Name="GridSide" Width="200" HorizontalAlignment="Right" Grid.Column="1">
-                <Button Width="30" Height="25" Foreground="White" VerticalAlignment="Top"
+                <Button Width="30" Height="25" Foreground="White" VerticalAlignment="Top" BorderThickness="0"
                     Margin="5 5 0 0 " FontSize="17" HorizontalAlignment="Left" Command="{Binding SoundCommand}">
                     <Button.Background>
                         <ImageBrush ImageSource="{Binding ImageSound}"/>
@@ -34,12 +34,15 @@
                 <Button Content="Wybierz Obrazek" Width="150" Height="30" Background="DarkCyan" Foreground="White" VerticalAlignment="Top"
                     Margin="0 50 0 0 " FontSize="17" Command="{Binding ChooseImageCommand}"></Button>
 
-                <Button Content="Mieszaj" Width="150" Height="30" Background="DarkCyan" Foreground="White" VerticalAlignment="Center"
+                <Button Content="Reset" Width="150" Height="30" Background="DarkCyan" Foreground="White" VerticalAlignment="Center"
                     Margin="0 0 0 220 " FontSize="17" Command="{Binding MixImageCommand}"></Button>
 
                 <TextBlock Width="150" Height="20" VerticalAlignment="Top" Margin="0 115 0 0" FontSize="15">
                     Wybierz poziom
                 </TextBlock>
+
+                <Button Content="Ranking" Width="150" Height="30" Background="DarkCyan" Foreground="White" VerticalAlignment="Center"
+                    Margin="0 0 0 100 " FontSize="17" Command="{Binding RankingCommand}"></Button>
 
                 <ComboBox Text="{Binding SelectedSplit}" Width="150" Height="20" VerticalAlignment="Top" Margin="0 140 0 0" SelectedIndex="{Binding SelectedInd,Mode=TwoWay}">
                     <ComboBoxItem></ComboBoxItem>
@@ -47,8 +50,7 @@
                     <ComboBoxItem>4x4</ComboBoxItem>
                     <ComboBoxItem>5x5</ComboBoxItem>
                 </ComboBox>
-                
-                
+
             </Grid>
 
             <GridSplitter Width="5" IsEnabled="False"></GridSplitter>

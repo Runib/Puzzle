@@ -79,6 +79,7 @@
     <Compile Include="ViewModel\DisplayImageViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\PiecNaPiecViewModel.cs" />
+    <Compile Include="ViewModel\RankingViewModel.cs" />
     <Compile Include="ViewModel\TrzyNaTrzyViewModel.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />
     <Compile Include="View\CzteryNaCzteryView.xaml.cs">
@@ -89,6 +90,9 @@
     </Compile>
     <Compile Include="View\PiecNaPiecView.xaml.cs">
       <DependentUpon>PiecNaPiecView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\RankingView.xaml.cs">
+      <DependentUpon>RankingView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\TrzyNaTrzyView.xaml.cs">
       <DependentUpon>TrzyNaTrzyView.xaml</DependentUpon>
@@ -114,6 +118,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\PiecNaPiecView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\RankingView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

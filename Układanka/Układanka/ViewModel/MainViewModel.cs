@@ -2,6 +2,7 @@ using System;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
 using Microsoft.Win32;
+using Układanka.View;
 using Układanka.Services;
 using System.Windows;
 using System.Windows.Controls;
@@ -22,6 +23,7 @@ namespace Układanka.ViewModel
         public RelayCommand SoundCommand { get; set; }
         public RelayCommand ChooseImageCommand { get; set; }
         public RelayCommand MixImageCommand { get; set; }
+        public RelayCommand RankingCommand { get; set; }
 
         private string imageSound;
         public string ImageSound
@@ -61,6 +63,7 @@ namespace Układanka.ViewModel
                 if (Image != null)
                 {
                     TrzyNaTrzyViewModel.StartTime = DateTime.Now;
+                    TrzyNaTrzyViewModel.Original.Clear();
                     TrzyNaTrzyViewModel.GameList.Clear();
                     navigationService.NavigateTo(ViewModelLocator.TrzyNaTrzyKey, Image);
                     ChoosenSplit = "3x3";
@@ -77,6 +80,7 @@ namespace Układanka.ViewModel
                 if (Image != null)
                 {
                     CzteryNaCzteryViewModel.StartTime = DateTime.Now;
+                    CzteryNaCzteryViewModel.Original.Clear();
                     CzteryNaCzteryViewModel.GameList.Clear();
                     navigationService.NavigateTo(ViewModelLocator.CzteryNaCzteryKey, Image);
                     ChoosenSplit = "4x4";
@@ -93,6 +97,7 @@ namespace Układanka.ViewModel
                 if (Image != null)
                 {
                     PiecNaPiecViewModel.StartTime = DateTime.Now;
+                    PiecNaPiecViewModel.Original.Clear();
                     PiecNaPiecViewModel.GameList.Clear();
                     navigationService.NavigateTo(ViewModelLocator.PiecNaPiecKey, Image);
                     ChoosenSplit = "5x5";
@@ -192,6 +197,15 @@ namespace Układanka.ViewModel
                         PiecNaPiecViewModel.GameList = GameHelper.SplitImage(Image, 5);
                     }
                 }
+            });
+
+            RankingCommand = new RelayCommand(() =>
+            {
+                App.Current.MainWindow.Hide();
+                RankingView rankWindow = new RankingView();
+                rankWindow.ShowDialog();
+
+                App.Current.MainWindow.Show();
             });
         }
 

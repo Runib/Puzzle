@@ -20,6 +20,45 @@ namespace Układanka.Helper
         private static ObservableCollection<ImageModel> Original { get; set; } = new ObservableCollection<ImageModel>();
         private static ObservableCollection<ImageModel> GameList { get; set; } = new ObservableCollection<ImageModel>();
 
+
+        public static ObservableCollection<ImageModel> OriginalImage(string img, int length)
+        {
+            Original.Clear();
+            GameList.Clear();
+            Bitmap original = new Bitmap(img);
+            int position = 0;
+            int index = 0;
+
+
+            int widthOrg = original.Width / length, heighOrg = original.Height / length;
+            for (int i = 0; i < length; i++)
+            {
+                for (int j = 0; j < length; j++)
+                {
+                    Rectangle srcRect = new Rectangle(j * widthOrg, i * heighOrg, widthOrg, heighOrg);
+                    Bitmap objImg = original.Clone(srcRect, original.PixelFormat);
+                    using (var memory = new MemoryStream())
+                    {
+                        objImg.Save(memory, ImageFormat.Png);
+                        memory.Position = position;
+
+                        BitmapImage bitmapImage = new BitmapImage();
+                        bitmapImage.BeginInit();
+                        bitmapImage.StreamSource = memory;
+                        bitmapImage.CacheOption = BitmapCacheOption.OnLoad;
+                        bitmapImage.EndInit();
+                        bitmapImage.Freeze();
+                        Original.Add(new ImageModel { Image = bitmapImage, Row = i, Col = j, Text = index.ToString() });
+
+                    }
+                    index++;
+                }
+            }
+            Original.Last().Image = null;
+            return Original;
+        }
+
+
         public static ObservableCollection<ImageModel> SplitImage(string img, int length)
         {
             Original.Clear();
@@ -48,8 +87,6 @@ namespace Układanka.Helper
                         bitmapImage.EndInit();
                         bitmapImage.Freeze();
                         Original.Add(new ImageModel { Image = bitmapImage, Row = i, Col = j, Text = index.ToString() });
-                        
-
 
                     }
                     index++;
@@ -233,11 +270,25 @@ namespace Układanka.Helper
             return EmptyModel.Image;
         }
 
+        public static bool CheckIt(ObservableCollection<ImageModel> imgModel, int length)
+        {
 
+            for (int i = 0; i < length*length; i++)
+            {
+                if (imgModel[i].Text == i.ToString())
+                {
+                    continue;
+                }
+                else return false;
+            }
+            return true;
+        }
 
 
 
         }
+
+
 
 
         

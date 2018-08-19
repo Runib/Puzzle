@@ -34,3 +34,5 @@ D:\c#\Nowy folder\Układanka\Układanka\Układanka\obj\Debug\Układanka.csprojRe
 D:\c#\Nowy folder\Układanka\Układanka\Układanka\obj\Debug\View\DisplayImageView.g.cs
 D:\c#\Nowy folder\Układanka\Układanka\Układanka\obj\Debug\View\DisplayImageView.baml
 D:\c#\Nowy folder\Układanka\Układanka\Układanka\obj\Debug\Układanka_Content.g.cs
+D:\c#\Nowy folder\Układanka\Układanka\Układanka\obj\Debug\View\RankingView.g.cs
+D:\c#\Nowy folder\Układanka\Układanka\Układanka\obj\Debug\View\RankingView.baml
