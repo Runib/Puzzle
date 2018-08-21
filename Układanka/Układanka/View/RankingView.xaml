@@ -10,55 +10,50 @@
         Title="Układanka" Height="400" Width="600"
         DataContext="{Binding Ranking, Source={StaticResource Locator}}"
         UseLayoutRounding="True">
-    <Grid Width="Auto" Height="30" VerticalAlignment="Top">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition></ColumnDefinition>
-            <ColumnDefinition></ColumnDefinition>
-            <ColumnDefinition></ColumnDefinition>
-        </Grid.ColumnDefinitions>
-
+    
+    
+    <Grid Width="Auto" Height="auto" VerticalAlignment="Top">
         
-        <Border Grid.Column="0" >
-            <Button Style="{DynamicResource ButtStyle}">Ranking 3x3</Button>
-        </Border>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
 
-        <Border Grid.Column="1">
-            <Button Style="{DynamicResource ButtStyle}">Ranking 4x4</Button>
-        </Border>
+        <Grid Grid.Row="0" Height="auto">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            
+            <Border Grid.Column="0" Style="{DynamicResource BorderStyle}" >
+                <Button Style="{DynamicResource ButtStyle}">Ranking 3x3</Button>
+            </Border>
 
-        <Border Grid.Column="2" >
-            <Button Style="{DynamicResource ButtStyle}">Ranking 5x5</Button>
-        </Border>
+            <Border Grid.Column="1" Style="{DynamicResource BorderStyle}">
+                <Button Style="{DynamicResource ButtStyle}">Ranking 4x4</Button>
+            </Border>
+
+            <Border Grid.Column="2" Style="{DynamicResource BorderStyle}">
+                <Button Style="{DynamicResource ButtStyle}">Ranking 5x5</Button>
+            </Border>
+        </Grid>
+
+        <Grid Grid.Row="1" Background="PaleGreen">
+            <TextBlock Style="{DynamicResource TextBlockStyle}">Sortuj według:</TextBlock>
+            <ComboBox Style="{DynamicResource ComboBoxStyle}">
+                <ComboBoxItem>Czas</ComboBoxItem>
+                <ComboBoxItem>Liczba kliknięć</ComboBoxItem>
+            </ComboBox>
+            <Line X1="0" X2="600" Y1="40" Y2="40" Stroke="Gray" StrokeThickness="2"></Line>
+        </Grid>
+
+        <Grid Grid.Row="2" Height="auto">
+            <DataGrid></DataGrid>
+        </Grid>
     </Grid>
 
-    <Window.Resources>
-        <Style TargetType="Border">
-            <Setter Property="BorderBrush" Value="Gray"/>
-            <Setter Property="BorderThickness" Value="2" />
-        </Style>
-
-        <Style TargetType="{x:Type Button}" x:Key="ButtStyle">
-            <Setter Property="Padding" Value="3" />
-            <Setter Property="Foreground" Value="DarkSeaGreen" />
-            <Setter Property="Background" Value="PaleGreen" />
-
-            <Style.Triggers>
-                <Trigger Property="IsMouseOver" Value="True">
-                    <Setter Property="Foreground" Value="Orange" />
-                    <Setter Property="Background" Value="Red"/>
-                </Trigger>
-
-                <Trigger Property="IsPressed" Value="True">
-                    <Setter Property="Background" Value="Black" />
-                    <Setter Property="Foreground" Value="Pink" />
-                </Trigger>
-
-                <Trigger Property="IsFocused" Value="True">
-                    <Setter Property="Background" Value="White" />
-                    <Setter Property="Foreground" Value="Brown" />
-                </Trigger>
-            </Style.Triggers>
-        </Style>
-    </Window.Resources>
+    
 
 </Window>

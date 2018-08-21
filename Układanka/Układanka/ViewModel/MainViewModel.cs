@@ -9,11 +9,16 @@ using System.Windows.Controls;
 using Układanka.Helper;
 using System.ComponentModel;
 using System.Windows.Media;
+using Npgsql;
+using System.Data;
 
 namespace Układanka.ViewModel
 {
     public class MainViewModel : ViewModelBase
     {
+        private DataSet ds = new DataSet();
+        private DataTable dt = new DataTable();
+
         private IMyNavigationService navigationService;
 
         private MediaPlayer mediaPlayer;
@@ -213,6 +218,12 @@ namespace Układanka.ViewModel
         {
             mediaPlayer.Position = TimeSpan.Zero;
             mediaPlayer.Play();
+        }
+
+        public void ConnectionToDb()
+        {
+           
+        
         }
     }
 }

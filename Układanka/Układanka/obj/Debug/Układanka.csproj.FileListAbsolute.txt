@@ -36,3 +36,16 @@ D:\c#\Nowy folder\Układanka\Układanka\Układanka\obj\Debug\View\DisplayImageVi
 D:\c#\Nowy folder\Układanka\Układanka\Układanka\obj\Debug\Układanka_Content.g.cs
 D:\c#\Nowy folder\Układanka\Układanka\Układanka\obj\Debug\View\RankingView.g.cs
 D:\c#\Nowy folder\Układanka\Układanka\Układanka\obj\Debug\View\RankingView.baml
+C:\GitHub\ClinicProject\Puzzle\Układanka\Układanka\bin\Debug\Układanka.exe.config
+C:\GitHub\ClinicProject\Puzzle\Układanka\Układanka\obj\Debug\Układanka.csprojResolveAssemblyReference.cache
+C:\GitHub\ClinicProject\Puzzle\Układanka\Układanka\obj\Debug\MainWindow.g.cs
+C:\GitHub\ClinicProject\Puzzle\Układanka\Układanka\obj\Debug\View\CzteryNaCzteryView.g.cs
+C:\GitHub\ClinicProject\Puzzle\Układanka\Układanka\obj\Debug\View\DisplayImageView.g.cs
+C:\GitHub\ClinicProject\Puzzle\Układanka\Układanka\obj\Debug\View\PiecNaPiecView.g.cs
+C:\GitHub\ClinicProject\Puzzle\Układanka\Układanka\obj\Debug\View\RankingView.g.cs
+C:\GitHub\ClinicProject\Puzzle\Układanka\Układanka\obj\Debug\View\TrzyNaTrzyView.g.cs
+C:\GitHub\ClinicProject\Puzzle\Układanka\Układanka\obj\Debug\App.g.cs
+C:\GitHub\ClinicProject\Puzzle\Układanka\Układanka\obj\Debug\Układanka_Content.g.cs
+C:\GitHub\ClinicProject\Puzzle\Układanka\Układanka\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\GitHub\ClinicProject\Puzzle\Układanka\Układanka\obj\Debug\Układanka_MarkupCompile.cache
+C:\GitHub\ClinicProject\Puzzle\Układanka\Układanka\obj\Debug\Układanka_MarkupCompile.lref
