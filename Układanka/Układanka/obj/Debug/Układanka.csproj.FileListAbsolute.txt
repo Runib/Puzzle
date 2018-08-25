@@ -30,7 +30,6 @@ D:\c#\Nowy folder\Układanka\Układanka\Układanka\obj\Debug\Układanka.Properti
 D:\c#\Nowy folder\Układanka\Układanka\Układanka\obj\Debug\Układanka.csproj.GenerateResource.Cache
 D:\c#\Nowy folder\Układanka\Układanka\Układanka\obj\Debug\Układanka.exe
 D:\c#\Nowy folder\Układanka\Układanka\Układanka\obj\Debug\Układanka.pdb
-D:\c#\Nowy folder\Układanka\Układanka\Układanka\obj\Debug\Układanka.csprojResolveAssemblyReference.cache
 D:\c#\Nowy folder\Układanka\Układanka\Układanka\obj\Debug\View\DisplayImageView.g.cs
 D:\c#\Nowy folder\Układanka\Układanka\Układanka\obj\Debug\View\DisplayImageView.baml
 D:\c#\Nowy folder\Układanka\Układanka\Układanka\obj\Debug\Układanka_Content.g.cs
@@ -49,3 +48,19 @@ C:\GitHub\ClinicProject\Puzzle\Układanka\Układanka\obj\Debug\Układanka_Conten
 C:\GitHub\ClinicProject\Puzzle\Układanka\Układanka\obj\Debug\GeneratedInternalTypeHelper.g.cs
 C:\GitHub\ClinicProject\Puzzle\Układanka\Układanka\obj\Debug\Układanka_MarkupCompile.cache
 C:\GitHub\ClinicProject\Puzzle\Układanka\Układanka\obj\Debug\Układanka_MarkupCompile.lref
+D:\c#\Nowy folder\Układanka\Układanka\Układanka\obj\Debug\Układanka.csprojAssemblyReference.cache
+D:\c#\Nowy folder\Układanka\Układanka\Układanka\bin\Debug\EntityFramework.dll
+D:\c#\Nowy folder\Układanka\Układanka\Układanka\bin\Debug\EntityFramework.SqlServer.dll
+D:\c#\Nowy folder\Układanka\Układanka\Układanka\bin\Debug\Mono.Security.dll
+D:\c#\Nowy folder\Układanka\Układanka\Układanka\bin\Debug\Npgsql.dll
+D:\c#\Nowy folder\Układanka\Układanka\Układanka\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+D:\c#\Nowy folder\Układanka\Układanka\Układanka\bin\Debug\System.Threading.Tasks.Extensions.dll
+D:\c#\Nowy folder\Układanka\Układanka\Układanka\bin\Debug\System.ValueTuple.dll
+D:\c#\Nowy folder\Układanka\Układanka\Układanka\bin\Debug\EntityFramework.xml
+D:\c#\Nowy folder\Układanka\Układanka\Układanka\bin\Debug\EntityFramework.SqlServer.xml
+D:\c#\Nowy folder\Układanka\Układanka\Układanka\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+D:\c#\Nowy folder\Układanka\Układanka\Układanka\bin\Debug\System.Threading.Tasks.Extensions.xml
+D:\c#\Nowy folder\Układanka\Układanka\Układanka\bin\Debug\System.ValueTuple.xml
+D:\c#\Nowy folder\Układanka\Układanka\Układanka\obj\Debug\Styles\Style1.baml
+D:\c#\Nowy folder\Układanka\Układanka\Układanka\obj\Debug\Układanka.csproj.CoreCompileInputs.cache
+D:\c#\Nowy folder\Układanka\Układanka\Układanka\obj\Debug\Układanka.csproj.CopyComplete
