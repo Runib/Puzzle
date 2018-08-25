@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\GitHub\ClinicProject\Puzzle\Układanka\Układanka\obj\Debug\
+D:\c#\Nowy folder\Układanka\Układanka\Układanka\obj\Debug\
 Układanka
 none
 false
 DEBUG;TRACE
-C:\GitHub\ClinicProject\Puzzle\Układanka\Układanka\App.xaml
+D:\c#\Nowy folder\Układanka\Układanka\Układanka\App.xaml
 7564304995
 2-453763299
-26-1041219479
-81-1919570960
+26-193974418
+81877667432
 MainWindow.xaml;Styles\Style1.xaml;View\CzteryNaCzteryView.xaml;View\DisplayImageView.xaml;View\PiecNaPiecView.xaml;View\RankingView.xaml;View\TrzyNaTrzyView.xaml;
 
-False
+True
 
